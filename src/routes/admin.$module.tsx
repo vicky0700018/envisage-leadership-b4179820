@@ -101,8 +101,8 @@ function Manager({ def, openNew }: { def: ModuleDef; openNew: boolean }) {
         {view && (
           <div className="p-8">
             <span className="eyebrow">View {def.singular}</span>
-            <h2 className="mt-2 text-3xl text-navy">{view[def.columns[0]!]}</h2>
-            {view["image"] && <div className="mt-5 aspect-[16/8] overflow-hidden rounded"><Img src={view["image"]} alt="" /></div>}
+            <h2 className="mt-2 pr-10 text-3xl text-navy">{view[def.columns[0]!]}</h2>
+            {view["image"] && <div className="mt-5 aspect-[16/8] max-h-56 w-full overflow-hidden rounded"><Img src={view["image"]} alt="" /></div>}
             <dl className="mt-6 divide-y divide-border">
               {def.fields.filter((f) => f.type !== "image").map((f) => <div key={f.key} className="grid gap-1 py-3 sm:grid-cols-3"><dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{f.label}</dt><dd className="whitespace-pre-line text-sm sm:col-span-2">{view[f.key] || "—"}</dd></div>)}
               <div className="grid gap-1 py-3 sm:grid-cols-3"><dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Status</dt><dd><StatusPill s={view.status} /></dd></div>
@@ -150,7 +150,7 @@ function EditForm({ def, row, onSave, onCancel }: { def: ModuleDef; row: Row; on
   return (
     <form onSubmit={submit} className="p-8">
       <span className="eyebrow">{row.id ? "Edit" : "Add"} {def.singular}</span>
-      <h2 className="mt-2 text-3xl text-navy">{row.id ? r[def.columns[0]!] || def.singular : `New ${def.singular}`}</h2>
+      <h2 className="mt-2 pr-10 text-3xl text-navy">{row.id ? r[def.columns[0]!] || def.singular : `New ${def.singular}`}</h2>
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         {def.fields.map((f) => (
           <div key={f.key} className={f.type === "textarea" || f.type === "image" ? "sm:col-span-2" : ""}>
