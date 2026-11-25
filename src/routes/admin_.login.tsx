@@ -32,6 +32,7 @@ function Login() {
             <p className="font-semibold">Demo credentials</p>
             <p className="mt-1">Username: <code className="font-semibold">{DEMO_USER}</code></p>
             <p>Password: <code className="font-semibold">{DEMO_PASS}</code></p>
+            <button type="button" onClick={() => { setU(DEMO_USER); setP(DEMO_PASS); setErr(""); }} className="btn btn-navy mt-3 w-full">Auto-fill credentials</button>
             <p className="mt-2 text-xs text-muted-foreground">Demo authentication only — not production security.</p>
           </div>
           <label className="mt-6 block text-xs font-semibold uppercase tracking-wider text-navy" htmlFor="u">Username</label>
